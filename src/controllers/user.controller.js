@@ -1,13 +1,16 @@
 const { UserService } = require('../services');
+const { login } = require('./login.controller');
 
-module.exports = async (req, res) => {
+const createUser = async (req, res) => {
   try {
     const { displayName, email, password, image } = req.body;
-    const user = await UserService.createUser({ displayName, email, password, image });
-  
-    if (!user) throw Error;
-    res.status(201).json({ message: 'Novo usuário criado com sucesso', user: displayName });
+    await UserService.createUser({ displayName, email, password, image });
+    const { token } = await login(req, res);
+
+    return res.status(201).json({ token });
   } catch (error) {
-    res.status(500).json({ message: 'Erro ao salvar o usuário no banco', error: error.message });
+    return res.status(400).json({ message: error.message });
   }
 };
+
+module.exports = { createUser };

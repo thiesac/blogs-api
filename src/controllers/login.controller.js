@@ -24,7 +24,7 @@ const generateToken = (user) => {
   return jwt.sign({ data: { userId: user.id } }, secret, jwtConfig);
 };
 
-module.exports = async (req, res) => {
+const login = async (req, res) => {
   try {
     const { email, password } = req.body;
 
@@ -41,3 +41,5 @@ module.exports = async (req, res) => {
     res.status(400).json({ message: error.message });
   }
 };
+
+module.exports = { login };
