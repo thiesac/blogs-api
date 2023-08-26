@@ -6,15 +6,13 @@ const createUser = ({ displayName, email, password, image }) => {
   if (error) {
     return { status: 400, data: { message: error.message } };
   }
-  // if (validationResult.error) {
-  //   const errorMessages = validationResult.error.details[0].message;
-  //   const status = 400;
-  //   return { status, data: { message: errorMessages } };
-  // }
   User.create({ displayName, email, password, image });
   return { status: 201 };
 };
 
+const getByEmail = (email) => User.findOne({ where: { email } });
+
 module.exports = {
   createUser,
+  getByEmail,
 };
