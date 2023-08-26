@@ -37,8 +37,13 @@ const login = async (req, res) => {
     const token = generateToken(user);
 
     res.status(200).json({ token });
+    return { token };
   } catch (error) {
-    res.status(400).json({ message: error.message });
+    if (res) {
+      res.status(400).json({ message: error.message });
+    } else {
+      console.error('Error:', error);
+    }
   }
 };
 

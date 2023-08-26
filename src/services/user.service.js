@@ -11,8 +11,8 @@ const createUser = ({ displayName, email, password, image }) => {
   //   const status = 400;
   //   return { status, data: { message: errorMessages } };
   // }
-  const user = User.create({ displayName, email, password, image });
-  return { status: 201, data: user };
+  User.create({ displayName, email, password, image });
+  return { status: 201 };
 };
 
 module.exports = {
