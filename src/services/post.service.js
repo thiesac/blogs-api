@@ -17,14 +17,14 @@ const getAll = () => BlogPost.findAll({
   include: [
     {
       model: User,
-      as: 'user', // Use the alias you defined in BlogPost.js
+      as: 'user', 
       attributes: ['id', 'displayName', 'email', 'image'],
     },
     {
       model: Category,
-      as: 'category', // Use the alias you defined in PostCategory.js
+      as: 'category', 
       attributes: ['id', 'name'],
-      through: { attributes: [] }, // To exclude the junction table attributes
+      through: { attributes: [] }, 
     },
   ],
 });

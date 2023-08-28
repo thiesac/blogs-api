@@ -9,11 +9,16 @@ const createPost = async (req, res) => {
 };
 
 const getAll = async (_req, res) => {
-  const posts = await PostService.getAll();
+  try {
+    const posts = await PostService.getAll();
 
-  // if (!posts) throw Error;
-
-  res.status(200).json(posts);
+    if (posts === undefined) {
+      res.status(400);
+    }
+    res.status(200).json(posts);
+  } catch (error) {
+    res.status(500).json({ message: 'Internal server error' });
+  }
 };
 
 module.exports = {
