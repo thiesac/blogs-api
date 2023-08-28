@@ -16,11 +16,11 @@ const generateToken = (user) => {
 const createUser = async (req, res) => {
   const { displayName, email, password, image } = req.body;
 
-  // const userExists = await UserService.getByEmail(email);
-  // console.log(`existe: ${userExists}`);
-  // if (userExists.isNewRecord === false) {
-  //   return res.status(409).json({ message: 'User already registered' });
-  // }
+  const userExists = await UserService.getByEmail(email);
+  console.log(`existe: ${userExists}`);
+  if (userExists) {
+    return res.status(409).json({ message: 'User already registered' });
+  }
   
   const user = await UserService.createUser({ displayName, email, password, image });
   //   const { token } = await login(req, res);
