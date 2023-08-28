@@ -22,7 +22,7 @@ const getAll = () => BlogPost.findAll({
     },
     {
       model: Category,
-      as: 'category', 
+      as: 'categories', 
       attributes: ['id', 'name'],
       through: { attributes: [] }, 
     },
