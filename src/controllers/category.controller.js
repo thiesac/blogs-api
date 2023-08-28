@@ -18,10 +18,11 @@ const createCategory = async (req, res) => {
 const getAll = async (_req, res) => {
   try {
     const categories = await CategoryService.getAll();
+    res.status(200).json(categories);
   } catch (error) {
-    
+    res.status(500);
   }
-}
+};
 
 module.exports = {
   createCategory,
