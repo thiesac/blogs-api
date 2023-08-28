@@ -14,7 +14,18 @@ const createCategory = async ({ name }) => {
 
 const getAll = () => Category.findAll();
 
+async function categoriesAndPost(categoryIds) {
+  const categories = await Category.findAll({
+    where: {
+      id: categoryIds,
+    },
+  });
+
+  return categories;
+}
+
 module.exports = {
   createCategory,
   getAll,
+  categoriesAndPost,
 };

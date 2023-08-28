@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         primaryKey: true,
         references: {
-          model: 'BlogPost',
+          model: 'blog_posts',
           key: 'id'
         },
         onDelete: 'CASCADE',
@@ -26,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       timestamps: false,
       underscored: true,
-      tableName: 'post_category',
+      tableName: 'posts_categories',
     },
   );
 
