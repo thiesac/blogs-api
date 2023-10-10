@@ -159,5 +159,3 @@ Contributions to this project are welcome! If you have bug fixes, feature additi
 ## Acknowledgment
 
 I would like to acknowledge [Trybe](https://www.betrybe.com/) and colleagues for their support and guidance during the development of this project.
-
-```
