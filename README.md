@@ -1,8 +1,6 @@
 ```markdown
 # Blogs API
 
-<img src="https://nodejs.org/static/images/logo.svg">
-
 The Blogs API is a Node.js-based RESTful API that allows users to manage and interact with blog posts. It provides endpoints for creating, retrieving, updating, and deleting blog posts, as well as user authentication for blog post management.
 
 ## Table of Contents
